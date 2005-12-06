@@ -1,21 +1,22 @@
 Summary:	screen-cyrillic font
 Summary(pl):	Font screen-cyrillic
 Name:		xorg-font-font-screen-cyrillic
-Version:	0.99.0
-Release:	0.01
+Version:	0.99.1
+Release:	0.1
 License:	MIT
 Group:		Fonts
-Source0:	http://xorg.freedesktop.org/X11R7.0-RC0/font/font-screen-cyrillic-%{version}.tar.bz2
-# Source0-md5:	8b50c5570076d96c15911a4f8268ca7d
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/font/font-screen-cyrillic-%{version}.tar.bz2
+# Source0-md5:	30ce35ef3a1e34ae66b5114685adc003
 URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-app-bdftopcf
 BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
-BuildRequires:	xorg-font-font-util
 BuildRequires:	xorg-util-util-macros
+Requires(post,postun):	fontpostinst
+Requires:	%{_fontsdir}/cyrillic
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,7 +32,8 @@ Font screen-cyrillic.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--with-fontdir=%{_fontsdir}/cyrillic
 
 %{__make}
 
@@ -44,6 +46,12 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+fontpostinst cyrillic
+
+%postun
+fontpostinst cyrillic
+
 %files
 %defattr(644,root,root,755)
-%{_libdir}/X11/fonts/cyrillic/*
+%{_fontsdir}/cyrillic/*
