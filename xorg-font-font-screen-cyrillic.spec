@@ -1,12 +1,12 @@
 Summary:	screen-cyrillic font
 Summary(pl):	Font screen-cyrillic
 Name:		xorg-font-font-screen-cyrillic
-Version:	1.0.0
+Version:	1.0.1
 Release:	0.1
 License:	MIT
 Group:		Fonts
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/font/font-screen-cyrillic-%{version}.tar.bz2
-# Source0-md5:	aea02d9dff03e0e1a3de85364367c0c6
+Source0:	http://xorg.freedesktop.org/releases/individual/font/font-screen-cyrillic-%{version}.tar.bz2
+# Source0-md5:	c8d5aef01c906c7aaea329702a8b1b63
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
