@@ -2,7 +2,7 @@ Summary:	screen-cyrillic font
 Summary(pl):	Font screen-cyrillic
 Name:		xorg-font-font-screen-cyrillic
 Version:	1.0.1
-Release:	0.1
+Release:	0.2
 License:	MIT
 Group:		Fonts
 Source0:	http://xorg.freedesktop.org/releases/individual/font/font-screen-cyrillic-%{version}.tar.bz2
@@ -42,6 +42,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+cd $RPM_BUILD_ROOT%{_fontsdir}/cyrillic
+mv fonts.scale fonts.scale.screen-cyrillic
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -54,4 +57,7 @@ fontpostinst cyrillic
 %files
 %defattr(644,root,root,755)
 %doc COPYING ChangeLog
-%{_fontsdir}/cyrillic/*
+%{_fontsdir}/cyrillic/*.gz
+%{_fontsdir}/cyrillic/*.scale.*
+# conflict with xorg-font-font-winitzki-cyrillic
+#%ghost %{_fontsdir}/cyrillic/*.dir
