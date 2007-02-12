@@ -1,5 +1,5 @@
 Summary:	screen-cyrillic font
-Summary(pl.UTF-8):   Font screen-cyrillic
+Summary(pl.UTF-8):	Font screen-cyrillic
 Name:		xorg-font-font-screen-cyrillic
 Version:	1.0.1
 Release:	0.2
