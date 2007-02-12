@@ -1,5 +1,5 @@
 Summary:	screen-cyrillic font
-Summary(pl):	Font screen-cyrillic
+Summary(pl.UTF-8):   Font screen-cyrillic
 Name:		xorg-font-font-screen-cyrillic
 Version:	1.0.1
 Release:	0.2
@@ -21,7 +21,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 screen-cyrillic font.
 
-%description -l pl
+%description -l pl.UTF-8
 Font screen-cyrillic.
 
 %prep
