@@ -1,8 +1,8 @@
-Summary:	screen-cyrillic font
-Summary(pl.UTF-8):	Font screen-cyrillic
+Summary:	Screen Fixed Cyrillic font
+Summary(pl.UTF-8):	Font Screen Fixed w cyrylicy
 Name:		xorg-font-font-screen-cyrillic
 Version:	1.0.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Fonts
 Source0:	http://xorg.freedesktop.org/releases/individual/font/font-screen-cyrillic-%{version}.tar.bz2
@@ -15,16 +15,14 @@ BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
 BuildRequires:	xorg-util-util-macros
 Requires(post,postun):	fontpostinst
-Requires(post,postun):	xorg-app-mkfontdir
-Requires(post,postun):	xorg-app-mkfontscale
 Requires:	%{_fontsdir}/cyrillic
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-screen-cyrillic font.
+Screen Fixed Cyrillic font.
 
 %description -l pl.UTF-8
-Font screen-cyrillic.
+Font Screen Fixed w cyrylicy.
 
 %prep
 %setup -q -n font-screen-cyrillic-%{version}
@@ -44,21 +42,17 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cd $RPM_BUILD_ROOT%{_fontsdir}/cyrillic
-mv fonts.scale fonts.scale.screen-cyrillic
+# fonts.scale bogus, fonts.dir generated in post
+rm -f $RPM_BUILD_ROOT%{_fontsdir}/cyrillic/fonts.{dir,scale}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 fontpostinst cyrillic
-mkfontdir %{_fontsdir}/cyrillic
-mkfontscale %{_fontsdir}/cyrillic
 
 %postun
 fontpostinst cyrillic
-mkfontdir %{_fontsdir}/cyrillic
-mkfontscale %{_fontsdir}/cyrillic
 
 %files
 %defattr(644,root,root,755)
