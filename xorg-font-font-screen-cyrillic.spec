@@ -2,7 +2,7 @@ Summary:	Screen Fixed Cyrillic font
 Summary(pl.UTF-8):	Font Screen Fixed w cyrylicy
 Name:		xorg-font-font-screen-cyrillic
 Version:	1.0.4
-Release:	1
+Release:	2
 License:	MIT
 Group:		Fonts
 Source0:	http://xorg.freedesktop.org/releases/individual/font/font-screen-cyrillic-%{version}.tar.bz2
